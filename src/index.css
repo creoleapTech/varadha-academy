@@ -1,0 +1,177 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Updated to use HSL CSS variables for shadcn/ui compatibility */
+@layer base {
+  :root {
+    --background: 210 40% 98%; /* Soft near-white blue */
+    --foreground: 222 47% 7%; /* Deep dark blue for text */
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 7%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 7%;
+    --primary: 217 91% 60%; /* Vibrant blue */
+    --primary-foreground: 210 40% 98%;
+    --secondary: 199 89% 48%; /* Cyber cyan */
+    --secondary-foreground: 210 40% 98%;
+    --accent: 262 83% 58%; /* Futuristic purple */
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --input: 214.3 31.8% 91.4%;
+    --border: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 1rem;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-background text-foreground font-sans;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
+/* Futuristic background classes */
+.bg-mesh-light {
+  background-color: hsla(210, 40%, 98%, 1);
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(217, 91%, 60%, 0.1) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(262, 83%, 58%, 0.1) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, hsla(199, 89%, 48%, 0.1) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, hsla(217, 91%, 60%, 0.1) 0px, transparent 50%);
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-display font-black tracking-tighter text-foreground;
+}
+
+.text-glow-primary {
+  text-shadow: 0 0 10px rgba(59, 130, 246, 0.2), 0 0 20px rgba(59, 130, 246, 0.1);
+}
+
+a {
+  @apply transition-all duration-300;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/20 rounded-full hover:bg-primary/40 transition-colors;
+}
+
+/* Glassmorphism Light */
+.glass-panel {
+  @apply bg-white/40 backdrop-blur-xl border border-white/60 shadow-xl;
+}
+
+.glass-card {
+  @apply bg-white/60 backdrop-blur-lg border border-white hover:border-blue-200 transition-all duration-500 shadow-sm hover:shadow-xl;
+}
+
+/* Animations */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.2)); }
+  50% { filter: drop-shadow(0 0 25px rgba(59, 130, 246, 0.4)); }
+}
+
+/* Button styles */
+@layer components {
+  .btn-futuristic {
+    @apply relative px-8 py-3 rounded-2xl font-bold overflow-hidden transition-all duration-300 active:scale-95 text-white;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.4);
+  }
+
+  .btn-futuristic:hover {
+    box-shadow: 0 15px 30px -5px rgba(59, 130, 246, 0.6);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline-futuristic {
+    @apply relative px-8 py-3 rounded-2xl font-bold border-2 border-primary/20 text-primary overflow-hidden transition-all duration-300;
+    background: white;
+  }
+
+  .btn-outline-futuristic:hover {
+    @apply border-primary bg-primary/5;
+    box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.1);
+  }
+
+  /* Section padding */
+  .section-padding {
+    @apply py-24;
+  }
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  h1 {
+    @apply text-3xl;
+  }
+
+  h2 {
+    @apply text-2xl;
+  }
+
+  .section-padding {
+    @apply py-12;
+  }
+
+  .section-padding-lg {
+    @apply py-16;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
