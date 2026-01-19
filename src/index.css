@@ -7,17 +7,22 @@
 /* Updated to use HSL CSS variables for shadcn/ui compatibility */
 @layer base {
   :root {
-    --background: 210 40% 98%; /* Soft near-white blue */
-    --foreground: 222 47% 7%; /* Deep dark blue for text */
+    --background: 210 40% 98%;
+    /* Soft near-white blue */
+    --foreground: 222 47% 7%;
+    /* Deep dark blue for text */
     --card: 0 0% 100%;
     --card-foreground: 222 47% 7%;
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 7%;
-    --primary: 217 91% 60%; /* Vibrant blue */
+    --primary: 217 91% 60%;
+    /* Vibrant blue */
     --primary-foreground: 210 40% 98%;
-    --secondary: 199 89% 48%; /* Cyber cyan */
+    --secondary: 199 89% 48%;
+    /* Cyber cyan */
     --secondary-foreground: 210 40% 98%;
-    --accent: 262 83% 58%; /* Futuristic purple */
+    --accent: 262 83% 58%;
+    /* Futuristic purple */
     --accent-foreground: 210 40% 98%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -38,6 +43,29 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+.parallax-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.parallax-bg {
+  position: absolute;
+  top: -25%;
+  left: 0;
+  width: 100%;
+  height: 150%;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  will-change: transform;
+}
+
+.parallax-content {
+  position: relative;
+  z-index: 1;
 }
 
 body {
@@ -50,7 +78,7 @@ body {
 /* Futuristic background classes */
 .bg-mesh-light {
   background-color: hsla(210, 40%, 98%, 1);
-  background-image: 
+  background-image:
     radial-gradient(at 0% 0%, hsla(217, 91%, 60%, 0.1) 0px, transparent 50%),
     radial-gradient(at 100% 0%, hsla(262, 83%, 58%, 0.1) 0px, transparent 50%),
     radial-gradient(at 100% 100%, hsla(199, 89%, 48%, 0.1) 0px, transparent 50%),
@@ -107,13 +135,27 @@ a {
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
 }
 
 @keyframes pulseGlow {
-  0%, 100% { filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.2)); }
-  50% { filter: drop-shadow(0 0 25px rgba(59, 130, 246, 0.4)); }
+
+  0%,
+  100% {
+    filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.2));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 25px rgba(59, 130, 246, 0.4));
+  }
 }
 
 /* Button styles */
@@ -166,6 +208,7 @@ a {
 
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {

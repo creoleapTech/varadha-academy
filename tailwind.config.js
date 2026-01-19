@@ -18,6 +18,10 @@ module.exports = {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
         },
+        primary: '#282661',     // Dark Blue
+        secondary: '#102A43',   // Gradient Blue
+        accent: '#D4AF37',      // Gold
+        goldDark: '#D6B25E',
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
